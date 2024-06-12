@@ -53,7 +53,9 @@ export default function Owner1() {
     <div>
       <Header />
       <h1 className='font-bold text-[2em]'>Alice</h1>
-      <h2>Accounts</h2>
+      <section className='flex flex-row'>
+      <div>
+        <h2>Accounts</h2>
       {accounts.map((account, index) => (
         <div key={index}>
           {account.balance.map((bal, balIndex) => (
@@ -83,6 +85,14 @@ export default function Owner1() {
         placeholder="Message (e.g., hello dan!)"
       />
       <button onClick={handlePostRequest}>Submit</button>
+        </div>
+
+        <div>
+        
+        <h2>dsasda</h2>
+        </div>
+      </section>
+     
     </div>
   );
 }
