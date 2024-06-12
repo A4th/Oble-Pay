@@ -6,7 +6,7 @@ export default function Owner1() {
   const [accounts, setAccounts] = useState([]);
   const [counterparty, setCounterparty] = useState('dan');
   const [amount, setAmount] = useState('100');
-  const [message, setMessage] = useState('hello dan!');
+  const [message, setMessage] = useState('');
   const [tokenname, setTokenname] = useState('');
 
   // Function to handle GET request
@@ -98,7 +98,7 @@ export default function Owner1() {
       <input
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="Message (e.g., hello dan!)"
+        placeholder="Type your message here"
         className='bg-zinc-400'
       />
       <br />

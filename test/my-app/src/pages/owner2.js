@@ -6,7 +6,9 @@ export default function Owner1() {
   const [accounts, setAccounts] = useState([]);
   const [counterparty, setCounterparty] = useState('dan');
   const [amount, setAmount] = useState('100');
-  const [message, setMessage] = useState('hello dan!');
+  const [message, setMessage] = useState('');
+  const [tokenname, setTokenname] = useState('');
+
 
   // Function to handle GET request
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function Owner1() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          amount: { code: 'TOK', value: parseFloat(amount) },
+          amount: { code: tokenname, value: parseFloat(amount) },
           counterparty: { node: 'owner2', account: counterparty },
           message: message,
         }),
@@ -51,40 +53,61 @@ export default function Owner1() {
 
   return (
     <div>
-      <Header />
-      <h1>Owner 2 Page</h1>
-      <img src = {dan}  height = {200} width = {200}/>
+    <Header />
+    <h1 className='font-bold text-[4em] font-serif'>Dan</h1>
+    <br/>
+    <div className='flex'>
+    <div className='flex-1 w-64 text-center'>
+    <h2 className='font-bold text-[3em] font-serif'>Token balance</h2>
+    {accounts.map((account, index) => (
+      <div key={index}>
+        {account.balance.map((bal, balIndex) => (
+          <h1 key={balIndex} className='font-bold text-[2em] font-serif' >
+            {bal.value} {bal.code}
+          </h1>
+        ))}
+      </div>
+    ))}
+    
+      </div>
 
-      <h2>Accounts</h2>
-      {accounts.map((account, index) => (
-        <div key={index}>
-          {account.balance.map((bal, balIndex) => (
-            <p key={balIndex}>
-              {bal.code}: {bal.value}
-            </p>
-          ))}
-        </div>
-      ))}
-      <h2>Counter Party</h2>
-      <input
-        value={counterparty}
-        onChange={(e) => setCounterparty(e.target.value)}
-        placeholder="Counterparty (e.g., dan)"
-      />
-      <h2>Amount</h2>
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder="Amount (e.g., 100)"
-      />
-      <h2>Message</h2>
-      <input
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder="Message (e.g., hello dan!)"
-      />
-      <button onClick={handlePostRequest}>Submit</button>
+      <div className='flex-1 w-64 text-center'>
+      <h2 className='font-bold text-[2em] font-serif'>Counter Party</h2>
+    <input
+      value={counterparty}
+      onChange={(e) => setCounterparty(e.target.value)}
+      className='bg-zinc-400'
+    />
+    <h2 className='font-bold text-[2em] font-serif'>Amount</h2>
+    <input
+      type="number"
+      value={amount}
+      onChange={(e) => setAmount(e.target.value)}
+      placeholder="Integers only"
+      className='bg-zinc-400'
+    />
+
+    <h2 className='font-bold text-[2em] font-serif'>Token</h2>
+    <input
+      value={tokenname}
+      onChange={(e) => setTokenname(e.target.value)}
+      placeholder="Choose from the left hand side"
+      className='bg-zinc-400'
+    />
+
+    <h2 className='font-bold text-[2em] font-serif'>Message</h2>
+    <input
+      value={message}
+      onChange={(e) => setMessage(e.target.value)}
+      placeholder="Type your message here"
+      className='bg-zinc-400'
+    />
+    <br />
+    <br />
+    <button onClick={handlePostRequest} className='bg-red-900 rounded-full min-w-80'>Submit</button>
     </div>
+    </div>
+   
+  </div>
   );
 }
