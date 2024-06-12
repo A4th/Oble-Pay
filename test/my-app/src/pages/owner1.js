@@ -52,8 +52,7 @@ export default function Owner1() {
   return (
     <div>
       <Header />
-      <h1>Owner 1 Page</h1>
-      <img src = {alice}  height = {200} width = {200}/>
+      <h1 className='font-bold text-[2em]'>Alice</h1>
       <h2>Accounts</h2>
       {accounts.map((account, index) => (
         <div key={index}>

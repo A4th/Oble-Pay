@@ -5,28 +5,14 @@ import logo from './Logo.png';
 
 const Header = () => {
   return (
-    <header>
-      <div className="logo">
-    
-        <img src={logo} alt="Blog Logo" />
+    <header className='flex justify-center'>
+      <div>
+        
+          <img src={logo} alt="Logo" className='w-16' /> 
+        
         
       </div>
-      <nav>
-        <ul>
-          <li>
-            Home
-          </li>
-          <li>
-            Technology
-          </li>
-          <li>
-            Travel
-          </li>
-          <li>
-           Lifestyle
-          </li>
-        </ul>
-      </nav>
+    
     </header>
   );
 };
