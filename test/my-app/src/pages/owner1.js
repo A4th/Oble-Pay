@@ -8,6 +8,11 @@ export default function Owner1() {
   const [amount, setAmount] = useState('100');
   const [message, setMessage] = useState('');
   const [tokenname, setTokenname] = useState('');
+  const URL = "http://localhost:8052/credentials";
+  const [nam, setName] = useState("")
+  const [studNum, setNum] = useState("")
+  const [upEmail, setMail] = useState("")
+  const [showCredentials, setShowCredentials] = useState(false);
 
   // Function to handle GET request
   useEffect(() => {
@@ -27,6 +32,27 @@ export default function Owner1() {
     };
 
     fetchAccounts();
+
+    const fetchData = async () => {
+      const result = await fetch(URL, {
+        headers: {
+          'accept': 'application/json'
+        }
+      });
+      result.json().then(json => {
+        setName(json.results[0].attrs.name)
+        setNum(json.results[0].attrs.studentNumber)
+        setMail(json.results[0].attrs.upMail)
+        console.log (json)
+      })
+
+    }
+    fetchData();
+
+
+
+
+
   }, []);
 
   // Function to handle POST request
@@ -50,6 +76,16 @@ export default function Owner1() {
     }
   };
 
+  const showClick = () => {
+    setShowCredentials(true);
+  };
+  const hideClick = () => {
+    setShowCredentials(false);
+  };
+
+
+
+
   return (
     <div>
       <Header />
@@ -57,6 +93,13 @@ export default function Owner1() {
       <br/>
       <div className='flex'>
       <div className='flex-1 w-64 text-center'>
+      <h1>User</h1>
+      <h4>Name: {showCredentials ? nam : ""}</h4>
+      <h4>Student Number: {showCredentials ? studNum : ""}</h4>
+      <h4>UP Email: {showCredentials ? upEmail : ""}</h4>
+      <button onClick={showClick}>View Credentials</button><br />
+      <button onClick={hideClick}>Hide Credentials</button>
+
       <h2 className='font-bold text-[3em] font-serif'>Token balance</h2>
       {accounts.map((account, index) => (
         <div key={index}>
@@ -67,6 +110,8 @@ export default function Owner1() {
           ))}
         </div>
       ))}
+
+
       
         </div>
 
