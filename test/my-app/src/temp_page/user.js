@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function App() {
+export default function User() {
 
   const URL = "http://localhost:8052/credentials";
   const [nam, setName] = useState("")
@@ -45,4 +45,3 @@ function App() {
   );
 }
 
-export default App;

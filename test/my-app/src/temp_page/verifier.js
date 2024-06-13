@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-function App() {
-  const [connectionId, setConnectionId] = useState('3531ed61-3a7c-4f34-985e-bec1860eb349');
+export default function Verifier() {
+  const [connectionId, setConnectionId] = useState('222c1cf1-5b93-4102-acbd-c24c0cce3fb3');
 
   const [nam, setName] = useState("")
   const [studNum, setNum] = useState("")
@@ -36,7 +36,7 @@ function App() {
         name: 'name',
         restrictions: [
           {
-            cred_def_id: 'GdPtmM3zCyh7qZeHHaQLvp:3:CL:749956:default',
+            cred_def_id: 'Q9ozUWocBj5iV6C97by4fr:3:CL:905203:default',
           },
         ],
       };
@@ -47,7 +47,7 @@ function App() {
         name: 'studentNumber',
         restrictions: [
           {
-            cred_def_id: 'GdPtmM3zCyh7qZeHHaQLvp:3:CL:749956:default',
+            cred_def_id: 'Q9ozUWocBj5iV6C97by4fr:3:CL:905203:default',
           },
         ],
       };
@@ -58,7 +58,7 @@ function App() {
         name: 'upMail',
         restrictions: [
           {
-            cred_def_id: 'GdPtmM3zCyh7qZeHHaQLvp:3:CL:749956:default',
+            cred_def_id: 'Q9ozUWocBj5iV6C97by4fr:3:CL:905203:default',
           },
         ],
       };
@@ -150,10 +150,9 @@ function App() {
         <br />
         <button onClick={handleRequestClick} disabled={isDisabled}>Send Request</button>
         <br />
-        <button type = "button" onClick={handleProofClick} disabled={false}>Show Proof</button>
+        <button type = "button" onClick={handleProofClick} disabled={showProofDisabled}>Show Proof</button>
       </form>
     </div>
   );
 }
 
-export default App;
