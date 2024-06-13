@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import dan from './dan.png';
+
 import Header from './header';
 
 export default function Owner1() {
   const [accounts, setAccounts] = useState([]);
-  const [counterparty, setCounterparty] = useState('dan');
+  const [counterparty, setCounterparty] = useState('alice');
   const [amount, setAmount] = useState('100');
   const [message, setMessage] = useState('');
   const [tokenname, setTokenname] = useState('');
@@ -52,7 +52,7 @@ export default function Owner1() {
         },
         body: JSON.stringify({
           amount: { code: tokenname, value: parseFloat(amount) },
-          counterparty: { node: 'owner2', account: counterparty },
+          counterparty: { node: 'owner1', account: counterparty },
           message: message,
         }),
       });
@@ -184,32 +184,38 @@ export default function Owner1() {
     <br/>
     <div className='flex'>
     <div className='flex-1 w-64 text-center'>
-    <h1>Present Proof Request</h1>
+    <h1 className='font-bold text-[2em] font-serif'>Present Proof Request</h1>
       <form>
-        <label>
+        <label className='font-bold text-[1em] font-serif' >
           <input type="checkbox" checked={nameChecked} onChange={handleNameChange} />
           Name
         </label>
         <br />
-        <label>
+        <label className='font-bold text-[1em] font-serif'>
           <input type="checkbox" checked={studentNumberChecked} onChange={handleStudentNumberChange} />
           Student Number
         </label>
         <br />
-        <label>
+        <label className='font-bold text-[1em] font-serif'>
           <input type="checkbox" checked={upEmailChecked} onChange={handleUpEmailChange} />
           UP Email
         </label>
-        <h4>Name: {showCredentials ? nam : ""}</h4>
-        <h4>Student Number: {showCredentials ? studNum : ""}</h4>
-        <h4>UP Email: {showCredentials ? upEmail : ""}</h4>
+        <h4 className='font-bold text-[2em] font-serif'>Name: {showCredentials ? nam : ""}</h4>
+        <h4 className='font-bold text-[2em] font-serif'>Student Number: {showCredentials ? studNum : ""}</h4>
+        <h4 className='font-bold text-[2em] font-serif'>UP Email: {showCredentials ? upEmail : ""}</h4>
         <br />
-        <button onClick={handleRequestClick} disabled={isDisabled}>Send Request</button>
+        <button className='bg-red-900 rounded-full min-w-80' onClick={handleRequestClick} disabled={isDisabled}>Send Request</button>
         <br />
-        <button type = "button" onClick={handleProofClick} disabled={showProofDisabled}>Show Proof</button>
+        <br />
+        <button className='bg-red-900 rounded-full min-w-80' type = "button" onClick={handleProofClick} disabled={showProofDisabled}>Show Proof</button>
       </form>
 
-    <h2 className='font-bold text-[3em] font-serif'>Token balance</h2>
+
+    
+      </div>
+
+      <div className='flex-1 w-64 text-center'>
+      <h2 className='font-bold text-[2em] font-serif'>Token balance</h2>
     {accounts.map((account, index) => (
       <div key={index}>
         {account.balance.map((bal, balIndex) => (
@@ -219,8 +225,9 @@ export default function Owner1() {
         ))}
       </div>
     ))}
-    
-      </div>
+
+
+      </div >
 
       <div className='flex-1 w-64 text-center'>
       <h2 className='font-bold text-[2em] font-serif'>Counter Party</h2>

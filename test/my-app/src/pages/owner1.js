@@ -93,14 +93,21 @@ export default function Owner1() {
       <br/>
       <div className='flex'>
       <div className='flex-1 w-64 text-center'>
-      <h1>User</h1>
-      <h4>Name: {showCredentials ? nam : ""}</h4>
-      <h4>Student Number: {showCredentials ? studNum : ""}</h4>
-      <h4>UP Email: {showCredentials ? upEmail : ""}</h4>
-      <button onClick={showClick}>View Credentials</button><br />
-      <button onClick={hideClick}>Hide Credentials</button>
+      <h4 className='font-bold text-[2em] font-serif'>Name: {showCredentials ? nam : ""}</h4>
+      <h4 className='font-bold text-[2em] font-serif'>Student Number: {showCredentials ? studNum : ""}</h4>
+      <h4 className='font-bold text-[2em] font-serif'>UP Email: {showCredentials ? upEmail : ""}</h4>
+      <button onClick={showClick} className='bg-red-900 rounded-full min-w-80'>View Credentials</button>
+      <br />
+      <br />
+      <button onClick={hideClick} className='bg-red-900 rounded-full min-w-80'>Hide Credentials</button>
 
-      <h2 className='font-bold text-[3em] font-serif'>Token balance</h2>
+
+
+
+      
+        </div>
+      <div className='flex-1 w-64 text-center'>
+      <h2 className='font-bold text-[2em] font-serif'>Token balance</h2>
       {accounts.map((account, index) => (
         <div key={index}>
           {account.balance.map((bal, balIndex) => (
@@ -111,9 +118,7 @@ export default function Owner1() {
         </div>
       ))}
 
-
-      
-        </div>
+      </div>
 
         <div className='flex-1 w-64 text-center'>
         <h2 className='font-bold text-[2em] font-serif'>Counter Party</h2>
