@@ -20,7 +20,7 @@ It is advisable to follow the order of installation based from the list above as
 # To install the dependencies of the react app
 npm install
 
-# To start the Hyperledger Aries-Indy program, make sure to change the GENESIS_URL to http://greenlight.bcovrin.vonx.io/genesis in docker-compose.yml from the aries-playground repository and make sure to cd to aries-playground repository before running:
+# To start the Hyperledger Aries-Indy program, make sure to change the GENESIS_URL to http://greenlight.bcovrin.vonx.io/genesis in docker-compose.yml from the aries-playground repository and make sure to cd to aries-playground repository before running (Run this on another terminal):
 docker-compose up
 
 # Follow "Setting up Credentials System below before continuing
@@ -36,7 +36,9 @@ curl -X POST http://localhost:9100/api/v1/issuer/issue -H 'Content-Type: applica
 }'
 
 # bring down fabric test network 
-./stop.sh      
+./stop.sh
+
+# Run Ctrl+C on the terminal running docker-compose up
 ```
 
 # Setting up Credentials System
