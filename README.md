@@ -25,7 +25,7 @@ docker-compose up
 
 # Follow "Setting up Credentials System below before continuing
 
-# To start the hyperledger fabric network, Token SDK and the react app
+# To start the hyperledger fabric network, Token SDK and the react app. Make sure to cd to the Oble-Pay repository.
 ./startup.sh
 
 # To issue tokens, use this cURL command from the Token SDK documentation
