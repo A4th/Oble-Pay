@@ -24,8 +24,6 @@ npm install
 docker-compose up
 
 # Follow "Setting up Credentials System below before continuing
-# Follow Create DID in wallet from https://github.com/decentralised-dataexchange/aries-playground/blob/master/credential-issue-and-verification-api-user-guide.md
-# After creating local DID, you need to register it with ledger at http://greenlight.bcovrin.vonx.io/
 
 # To start the hyperledger fabric network, Token SDK and the react app
 ./startup.sh
