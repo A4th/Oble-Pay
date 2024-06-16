@@ -124,7 +124,7 @@ Then, Run ```POST ​/issue-credential​/send``` using the json body below.
   }
  }
 ```
-6. In the cloned Oble-Pay repository, go to test/my-app/src/temp_page/verifier.js
+6. In the cloned Oble-Pay repository, go to test/my-app/src/pages/owner2.js
 - Open localhost:8053 and run ```GET /connections``` then take note of the connection_id of the active connection.
 - Replace the ```const [connectionId, setConnectionId] = useState('PLACE CONNECTION_ID HERE');``` and all of the cred_def_id value with what you took note of in instruction 5.
 - Finally, close the browser and go back to Quick Start.
@@ -152,3 +152,4 @@ Then, Run ```POST ​/issue-credential​/send``` using the json body below.
 [6]: https://github.com/decentralised-dataexchange/aries-playground/blob/master/credential-issue-and-verification-api-user-guide.md
 [7]: http://greenlight.bcovrin.vonx.io/
 [8]: http://localhost:8051/api/doc#/schema/post_schemas
+
